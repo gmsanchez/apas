@@ -21,3 +21,6 @@ for i=1:K
     stem(t,s{i});
     title(sprintf('%0.1f Hz',fm(i)));
 end
+
+%% Conclusiones
+%
