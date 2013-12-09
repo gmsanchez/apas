@@ -55,8 +55,7 @@ axis([-10, length(s1), 0, max(S1)*1.1]); % Acomodo los ejes para que se visualic
 
 %% Inciso 3
 % Modifico las frecuencias de las señales seno de forma tal que $f_1 = 10\,Hz$ y $f2=10.5\,Hz$.
-% Se ve mal porque tenemos 1000Hz y 1000 muestras. Nuestra resolucion frecuencial es 1 Hz, por lo que no vemos
-% correctamente la senoidal de 10,5 Hz.
+% Nuestra resolucion frecuencial es 1 Hz, por lo que no vemos correctamente la senoidal de 10,5 Hz.
 
 figure;
 f2 = 10.5;
