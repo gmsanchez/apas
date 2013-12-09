@@ -4,27 +4,43 @@
 % términos y discuta la relación entre los resultados obtenidos y el
 % fenómeno de Gibbs.
 
+%% Resultados y código fuente
+% By changing N, the number of points plotted, and M, the number of coef?cients, the accuracy of the approximation
+%changes. For our purposes we kept the number of points plotted at 1000 to ensure the most precise graph for the number
+%of coef?cients used. We started using one coef?cient, setting M equal to 1. The Fourier Series compared to the actual
+%function is shown in Figure 3. Evaluating the function for M = 10 (Figure 4), M = 50 (Figure 5), M = 100
+%(Figure 6) and M = 1000 (Figure 7) it is easy to see how the series is almost perfectly approximated, but with visible
+%discontinuity.
+
+
 clear all;
 close all;
 
 f0 = 1;
-fm = 100; % 1000 Hz
-t = -1:1/fm:1-1/fm;
-y = square(2*pi*f0*t); % Genero una cuadrada de 20 Hz
-s = zeros(size(y));
+fm = 500;
+t = -pi:1/fm:pi-1/fm;
+y = square(2*pi*f0*t); % Genero una cuadrada de f0 Hz
 
 L = length(t);
-for N=1:2:11
-%N = 10; % Cantidad de bases a utilizar
-for k=1:N
-    sk = sin(2*pi*k*t);
-    ak = dot(y,sk)/dot(sk,sk)
-    s = s + ak*sk;
-    %subplot(N+1,1,k+1),plot(t,sk); title(sprintf('Base seno para k=%d',k));
-end
+for N=0:5:20 % Iteramos sobre la cantidad de bases
+    if N==0
+        M = N+1;
+    else
+        M = N;
+    end
+    s = 0.*y;
+    
+    for k=1:M
+        sk = sin(2*pi*k*t);
+        ak = dot(y,sk)/dot(sk,sk);
+        s = s + ak*sk;
+    end
 
-figure(N)
-plot(t,y,'r'); hold on;
-plot(t,s,'b'); hold off;
-xlabel('t[s]');
+    figure(M)
+    plot(t,y,'r'); hold on;
+    plot(t,s,'b'); hold off;
+    grid on;
+    title(sprintf('Señal cuadrada y su aproximación con %d términos.',M));
+    xlabel('t[s]');
+    
 end
