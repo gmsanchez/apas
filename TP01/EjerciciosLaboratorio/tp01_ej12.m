@@ -17,8 +17,8 @@ clear all;
 close all;
 
 f0 = 1;
-fm = 500;
-t = -pi:1/fm:pi-1/fm;
+fm = 50;
+t = -pi/2:1/fm:pi/2-1/fm;
 y = square(2*pi*f0*t); % Genero una cuadrada de f0 Hz
 
 L = length(t);
@@ -30,8 +30,10 @@ for N=0:5:20 % Iteramos sobre la cantidad de bases
     end
     s = 0.*y;
     
-    for k=1:M
-        sk = sin(2*pi*k*t);
+    for k=1:1:M
+        k
+        sk = sin(2*pi*k*t)
+        pause
         ak = dot(y,sk)/dot(sk,sk);
         s = s + ak*sk;
     end
