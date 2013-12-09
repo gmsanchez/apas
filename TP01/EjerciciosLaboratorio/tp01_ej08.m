@@ -1,3 +1,12 @@
+%% Guia 1 - Ejercicio de laboratorio 8
+%
+
+%% Enunciado y resultados
+% Discretice una señal senoidal con frecuencia 5 Hz. y duraci ón 1 seg.
+% Utilice las siguientes frecuencias de muestreo:
+% 1000, 100, 25, 10, 4, 1 y 0,5 Hz. Grafique y analice el resultado en
+% cada uno de los casos.
+
 clear all;
 close all;
 
