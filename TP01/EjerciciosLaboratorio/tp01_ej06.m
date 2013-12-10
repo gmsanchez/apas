@@ -1,7 +1,7 @@
 %% Guia 1 - Ejercicio de laboratorio 6
 %
 %% Enunciado
-% Dado el sistema 6y[n]?4y[n?1]+5y[n?2] = x[n]?2x[n?1]+x[n?2], inicialmente
+% Dado el sistema 6y[n]-4y[n-1]+5y[n-2] = x[n]-2x[n-1]+x[n-2], inicialmente
 % en reposo, obtenga la respuesta al escalón unitario mediante la ecuación
 % en diferencias y luego compárela con la calculada mediante la sumatoria
 % de convolución, para lo que deberá encontrar previamente su respuesta al impulso.
