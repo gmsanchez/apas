@@ -1,4 +1,5 @@
 function [ y ] = my_cconv( x,h )
+% Se utilizó la ecuacion de http://en.wikipedia.org/wiki/Convolution#equation_Eq.1
     nx = length(x);
     nh = length(h);
     ny = max(nx,nh);
