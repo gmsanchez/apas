@@ -1,17 +1,15 @@
-%% Guia 1 - Ejercicio de laboratorio 13
+%% Guia 1 - Ejercicio de laboratorio 12
 %
 % Aproxime una onda cuadrada mediante series seno de diferente cantidad de
-% t�rminos y discuta la relaci�n entre los resultados obtenidos y el
-% fen�meno de Gibbs.
+% términos y discuta la relación entre los resultados obtenidos y el
+% fenómeno de Gibbs.
 
-%% Resultados y c�digo fuente
-% By changing N, the number of points plotted, and M, the number of coef?cients, the accuracy of the approximation
-%changes. For our purposes we kept the number of points plotted at 1000 to ensure the most precise graph for the number
-%of coef?cients used. We started using one coef?cient, setting M equal to 1. The Fourier Series compared to the actual
-%function is shown in Figure 3. Evaluating the function for M = 10 (Figure 4), M = 50 (Figure 5), M = 100
-%(Figure 6) and M = 1000 (Figure 7) it is easy to see how the series is almost perfectly approximated, but with visible
-%discontinuity.
-
+%% Resultados y código fuente
+% Vemos que al aumentar la cantidad de términos mejora la aproximación de
+% la onda cuadrada. El fenómeno de Gibbs aparece cuando se quiere aproximar
+% una función que presenta una o más discontinuidades y se manifiesta
+% mediante oscilaciones cerca de la discontinuidad. A pesar de que aumentemos
+% la cantidad de términos de la aproximación, este fenómeno persiste.
 
 clear all;
 close all;
@@ -40,7 +38,7 @@ for N=0:5:20 % Iteramos sobre la cantidad de bases
     plot(t,y,'r'); hold on;
     plot(t,s,'b'); hold off;
     grid on;
-    title(sprintf('Se�al cuadrada y su aproximaci�n con %d t�rminos.',M));
+    title(sprintf('Señal cuadrada y su aproximación con %d términos.',M));
     xlabel('t[s]');
     
 end
