@@ -2,7 +2,7 @@
 %
 
 %% Enunciado y resultados
-% Discretice una señal senoidal con frecuencia 5 Hz. y duraci ón 1 seg.
+% Discretice una seÃ±al senoidal con frecuencia 5 Hz. y duraci Ã³n 1 seg.
 % Utilice las siguientes frecuencias de muestreo:
 % 1000, 100, 25, 10, 4, 1 y 0,5 Hz. Grafique y analice el resultado en
 % cada uno de los casos.

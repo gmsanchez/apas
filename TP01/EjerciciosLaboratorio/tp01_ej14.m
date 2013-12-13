@@ -1,18 +1,18 @@
 %% Guia 1 - Ejercicio de laboratorio 14
 %
 %% Enunciado:
-% Indicar el conjunto de parámetros que permiten que una función generada
+% Indicar el conjunto de parÃ¡metros que permiten que una funciÃ³n generada
 % mediante
 %
 % $$g(t) = \sin(2 \pi f_1 t) + 4 \sin(2 \pi f_2 t) $$
 %
-% coincidan con el espectro de magnitud de la señal de la figura que puede verse en la guía de
-% trabajos prácticos.
+% coincidan con el espectro de magnitud de la seÃ±al de la figura que puede verse en la guÃ­a de
+% trabajos prÃ¡cticos.
 
-%% Código fuente y resultados
-% Todas las señales, excepto la del inciso 2, pueden generar el espectro
+%% CÃ³digo fuente y resultados
+% Todas las seÃ±ales, excepto la del inciso 2, pueden generar el espectro
 % de la figura.
-% El siguiente código verifica si cada señal generada puede tener el
+% El siguiente cÃ³digo verifica si cada seÃ±al generada puede tener el
 % espectro de magnitud de la figura, considerando la posibilidad de que haya
 % senoidales con alias.
 

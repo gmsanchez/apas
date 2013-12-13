@@ -1,8 +1,8 @@
 %% Guia 1 - Ejercicio de laboratorio 7
 %
 %% Enunciado y resultados
-% Defina tres señales cualquiera y muestre numéricamente las propiedades
-% conmutativa, asociativa y distributiva de la convolución.
+% Defina tres seÃ±ales cualquiera y muestre numÃ©ricamente las propiedades
+% conmutativa, asociativa y distributiva de la convoluciÃ³n.
 
 clear all;
 close all;
@@ -44,5 +44,5 @@ legend('conv(x,(y+w))','conv(x,y)+conv(x,w)');
 grid on;
 
 %% Conclusiones
-% Como puede verse a partir de las figuras, la convolución cumple con las
+% Como puede verse a partir de las figuras, la convoluciÃ³n cumple con las
 % propiedades conmutativa, asociativa y distributiva.

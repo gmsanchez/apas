@@ -1,10 +1,10 @@
 %% Guia 1 - Ejercicio de laboratorio 5
 %
 %% Enunciado
-% Realice su propia implementaci髇 de las convoluciones lineal y circular 
-% mediante la utilizaci髇 de ciclo for. Compare los resultados con la funci髇 conv.
+% Realice su propia implementaci贸n de las convoluciones lineal y circular 
+% mediante la utilizaci贸n de ciclo for. Compare los resultados con la funci贸n conv.
 
-%% C骴igo fuente y resultados
+%% C贸digo fuente y resultados
 clear all;
 close all;
 
@@ -14,31 +14,31 @@ t = 0:1/fm:1-1/fm;
 y = exp(-t);
 w = cos(2*pi*t);
 
-% Se馻les utilizadas
+% Se帽ales utilizadas
 figure();
 subplot(2,1,1),stem(t,y); title('exp(-t)'); xlabel('t');
 subplot(2,1,2),stem(t,w); title('cos(2*pi*t)'); xlabel('t');
 
-% Convoluci髇 lineal
+% Convoluci贸n lineal
 figure()
 plot(conv(y,w),'r+'), hold on;
 plot(my_conv(y,w),'bo'), hold off;
-title('Convoluci髇 lineal');
+title('Convoluci贸n lineal');
 xlabel('muestras');
 
-% Convoluci髇 circular
+% Convoluci贸n circular
 figure()
 N = length(y);
 plot(ifft(fft(y).*fft(w)),'r+'), hold on;
 plot(my_cconv(y,w),'bo'), hold off;
-title('Convoluci髇 circular');
+title('Convoluci贸n circular');
 xlabel('muestras');
 
 %% Anexo: Codigo fuente de las funciones utilizadas
 %
 
-% Convoluci髇 lineal
+% Convoluci贸n lineal
 dbtype my_conv.m
 
-% Convoluci髇 circular
+% Convoluci贸n circular
 dbtype my_cconv.m

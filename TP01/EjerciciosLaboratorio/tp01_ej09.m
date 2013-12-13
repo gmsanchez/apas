@@ -2,7 +2,7 @@
 %
 
 %% Enunciado y resultados
-% Discretice una señal senoidal con frecuencia 4000 Hz. y duración 2 seg., utilizando
+% Discretice una seÃ±al senoidal con frecuencia 4000 Hz. y duraciÃ³n 2 seg., utilizando
 % una frecuencia de muestreo de 129 Hz. Grafique el resultado y estime la frecuencia de
 % la onda sinusoidal que se observa en la figura. Analice y obtenga conclusiones.
 
@@ -19,7 +19,7 @@ N = length(t);
 df = fm/N;
 deltaf = 0:df:fm-df;
 
-subplot(2,1,1), stem(t,s); title('Señal ejercicio 9');
+subplot(2,1,1), stem(t,s); title('SeÃ±al ejercicio 9');
 xlabel('t'); ylabel('s[t]');
 subplot(2,1,2), stem(deltaf,abs(fft(s)));
 title('Espectro de magnitud de la TDF'); xlabel('\omega'); ylabel('F[\omega]');
