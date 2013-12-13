@@ -1,10 +1,10 @@
 %% Guia 1 - Ejercicio de laboratorio 13
 %
 % Aproxime una onda cuadrada mediante series seno de diferente cantidad de
-% términos y discuta la relación entre los resultados obtenidos y el
-% fenómeno de Gibbs.
+% tï¿½rminos y discuta la relaciï¿½n entre los resultados obtenidos y el
+% fenï¿½meno de Gibbs.
 
-%% Resultados y código fuente
+%% Resultados y cï¿½digo fuente
 % By changing N, the number of points plotted, and M, the number of coef?cients, the accuracy of the approximation
 %changes. For our purposes we kept the number of points plotted at 1000 to ensure the most precise graph for the number
 %of coef?cients used. We started using one coef?cient, setting M equal to 1. The Fourier Series compared to the actual
@@ -17,8 +17,8 @@ clear all;
 close all;
 
 f0 = 1;
-fm = 50;
-t = -pi/2:1/fm:pi/2-1/fm;
+fm = 500;
+t = 0:1/fm:2-1/fm;
 y = square(2*pi*f0*t); % Genero una cuadrada de f0 Hz
 
 L = length(t);
@@ -31,9 +31,7 @@ for N=0:5:20 % Iteramos sobre la cantidad de bases
     s = 0.*y;
     
     for k=1:1:M
-        k
-        sk = sin(2*pi*k*t)
-        pause
+        sk = sin(2*pi*k*t*f0);
         ak = dot(y,sk)/dot(sk,sk);
         s = s + ak*sk;
     end
@@ -42,7 +40,7 @@ for N=0:5:20 % Iteramos sobre la cantidad de bases
     plot(t,y,'r'); hold on;
     plot(t,s,'b'); hold off;
     grid on;
-    title(sprintf('Señal cuadrada y su aproximación con %d términos.',M));
+    title(sprintf('Seï¿½al cuadrada y su aproximaciï¿½n con %d tï¿½rminos.',M));
     xlabel('t[s]');
     
 end
