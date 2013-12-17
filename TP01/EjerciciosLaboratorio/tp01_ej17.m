@@ -1,4 +1,4 @@
-%% Guia 1 - Ejercicio de laboratorio 16
+%% Guia 1 - Ejercicio de laboratorio 17
 %
 %% Enunciado:
 % Analice una señal senoidal cuya frecuencia crece linealmente desde cero
