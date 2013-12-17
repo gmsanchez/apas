@@ -13,10 +13,11 @@ fm = 1000;
 t = 0:1/fm:1-1/fm;
 y = chirp(t,100,1,200);
 figure()
-my_spectrogram(y,1,64,2,1000);
+s1 = my_spectrogram(y,2,96,64,fm,1);
 
 %% Conclusiones
-% El espectrograma muestra la señal senoidal con una frecuencia que
-% presenta un crecimiento lineal. Puede verse claramente que en el tiempo
+% En este ejercicio se eligió un tamaño de ventana de 224 con un
+% solapamiento de 64. El espectrograma muestra la señal senoidal con una 
+% frecuencia que presenta un crecimiento lineal. Puede verse que en el tiempo
 % t=0s la frecuencia está en 100 Hz y en el tiempo t=0.999s la frecuencia
 % está en 200 Hz.

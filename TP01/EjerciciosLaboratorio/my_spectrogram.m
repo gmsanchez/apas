@@ -1,5 +1,9 @@
 function [ specgram ] = my_spectrogram( x, wtype, ...
-                        wlength, wspacing , fs)
+                        wlength, noverlap, fs, matlabstyle)
+
+if nargin<6
+    matlabstyle = 0;
+end
 
 switch wtype
     case 0
@@ -19,15 +23,17 @@ switch wtype
         % disp('Switching to default: Hanning Window');
 end
 
-ts = 1/fs;
 n = length(x);
-wl05c =  ceil(wlength/2);
-wl05f = floor(wlength/2);
-w = window(fhandle,wlength)';
-nw = floor(n/wspacing); % cantidad de ventanas que utilizo
-specgram = ones(wl05f,nw);
+%inc_t = floor(n/wnumber);
+wnumber = floor(n/wlength);
+w = window(fhandle,wlength+2*noverlap)';
+wl = length(w);
+% fprintf('Tamaño de ventana: %d\n',wl);
+wl05c = ceil(0.5*wl);
+wl05f = floor(0.5*wl);
+specgram = zeros(wl05f,wnumber);
 s = 1;
-for i=1:wspacing:n
+for i=1:wlength:n
     tmin = i-wl05c;
     tmax = i+wl05f-1;
     if tmin<1
@@ -38,20 +44,25 @@ for i=1:wspacing:n
         xloc = x(tmin:tmax);
     end
     xloc = xloc.*w;
-    specloc = abs(fft(xloc));
+    specloc = (abs(fft(xloc)));
     specgram(:,s) = specloc(1:wl05f);
     s = s+1;
 end
 
-colormap(jet)
-% taxis = linspace(0,ts*(n-1),wspacing*ts);
-taxis = 0:wspacing/fs:n/fs-wspacing/fs;
-deltaf = fs/wlength;
+taxis = 0:wlength/fs:n/fs-wlength/fs;
+deltaf = fs/wl;
 faxis = linspace(0,deltaf*wl05f,wl05f);
-imagesc(taxis,faxis,specgram)
-% set(gca,'XTick',taxis);
-axis('xy')
-xlabel('Time')
-ylabel('Frequency')
-   
+if matlabstyle
+    specgram = specgram';
+    imagesc(faxis,taxis,specgram);
+    axis('xy')
+    ylabel('Time')
+    xlabel('Frequency')
+else
+    imagesc(taxis,faxis,specgram);
+    axis('xy')
+    xlabel('Time')
+    ylabel('Frequency')
+end
+colormap(jet)
 end
