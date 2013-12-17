@@ -17,10 +17,18 @@ K = length(tm);
 for i=1:K
     t = 0:tm(i):1-tm(i);
     s{i} = sin(2*pi*f*t);
-    subplot(K,1,i);
+    %subplot(K,1,i);
+    figure();
     stem(t,s{i});
-    title(sprintf('%0.1f Hz',fm(i)));
+    axis([0 1 -1 1])
+    title(sprintf('fm = %0.1f Hz',fm(i)));
 end
 
 %% Conclusiones
-%
+% En las figuras podemos observar que la señal se "ve" de 5 Hz hasta utilizar
+% 25 Hz de frecuencia muestreo. Al utilizar 10 Hz de frecuencia de muestreo, se
+% capturan los cruces por cero de la senoidal. Al ser submuestreada a 4 Hz,
+% la senoidal de 5 Hz aparece como una de 1 Hz por efecto del alias.
+% Utilizando frecuencias de muestreo menores, la representación de la señal
+% se ve sumamente deteriorada, llegando a tener una señal vacía en el caso
+% de 0.5 Hz.

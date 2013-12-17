@@ -44,5 +44,5 @@ legend('conv(x,(y+w))','conv(x,y)+conv(x,w)');
 grid on;
 
 %% Conclusiones
-% Como puede verse a partir de las figuras, la convolución cumple con las
+% Como se puede ver a partir de las figuras, la convolución cumple con las
 % propiedades conmutativa, asociativa y distributiva.

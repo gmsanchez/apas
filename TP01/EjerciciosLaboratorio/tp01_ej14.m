@@ -12,7 +12,7 @@
 %% Código fuente y resultados
 % Todas las señales, excepto la del inciso 2, pueden generar el espectro
 % de la figura.
-% El siguiente código verifica si cada señal generada puede tener el
+% El código fuente presentado a continuación verifica si cada señal generada puede tener el
 % espectro de magnitud de la figura, considerando la posibilidad de que haya
 % senoidales con alias.
 
@@ -67,7 +67,7 @@ else
     % Controlo si la frecuencia f2 tiene alias o no
     if f2(k)<fm(k)/2
         if deltaf(51) == f2(k)
-            display(sprintf('f1=%d Hz coincide con %d Hz.',...
+            display(sprintf('f2=%d Hz coincide con %d Hz.',...
                 f2(k),deltaf(51)));
         end
     else

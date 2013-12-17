@@ -49,7 +49,7 @@ figure;
 subplot(2,1,1),stem(t,s1); title('Señal inciso 2'); xlabel('t[s]');
 subplot(2,1,2);stem(f,abs(S1)); title('Espectro de magnitud de la TDF');
 xlabel('muestras');
-axis([-10, length(s1), 0, max(S1)*1.1]); % Acomodo los ejes para que se visualice correctamente.
+axis([-10, length(s1), 0, max(S1)*1.1]); % Acomodo los ejes
 
 
 

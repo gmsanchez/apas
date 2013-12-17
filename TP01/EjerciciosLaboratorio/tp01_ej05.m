@@ -34,7 +34,7 @@ plot(my_cconv(y,w),'bo'), hold off;
 title('Convolución circular');
 xlabel('muestras');
 
-%% Anexo: Codigo fuente de las funciones utilizadas
+%% Anexo: Código fuente de las funciones utilizadas
 %
 
 % Convolución lineal

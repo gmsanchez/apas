@@ -36,3 +36,9 @@ if deltaf(3) == falias
     display(sprintf('f=%d Hz aparece como alias de %d Hz.',...
     f,deltaf(3)));
 end
+
+%% Conclusiones
+% Debido a que no se respetó el teorema del muestreo de Nyquist-Shannon, al
+% utilizar una frecuencia de 129 Hz para muestrear una señal de 4000 Hz, se
+% va a producir alias. En este caso, la señal de 4000 Hz aparece como una
+% señal de 1 Hz.

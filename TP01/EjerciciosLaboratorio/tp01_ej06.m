@@ -25,7 +25,8 @@ grid on;
 hold on;
 plot(y2(1:length(y1)),'bo'); % Dibujo las mismas muestras que y1
 legend('Respuesta al escalon unitario','Convolución del escalón unitario con la respuesta al impulso','Location','Best');
-%% Conclusiones
+
+%% Conclusión
 % La salida de un sistema LTI es igual a la convolución de la entrada con 
 % la respuesta del sistema a un impulso.
 
