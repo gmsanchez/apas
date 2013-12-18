@@ -199,10 +199,14 @@ sound(x2s,fs);
 
 
 close all;
-Tsigma = 0.8:0.1:2.5;
+Tsigma = 0.8:0.05:2.5;
 snr_soft = 0.*Tsigma;
 snr_hard = 0.*Tsigma;
 
+% Acá está más explicado:
+% https://www.ceremade.dauphine.fr/~peyre/numerical-tour/tours/denoisingwav_2_wavelet_2d/
+% universal threshold rule
+% T = sigma*sqrt(2*log(N))
 for k=1:1:length(Tsigma)
     
     SnTh = perform_thresholding(Sn, Tsigma(k)*sigma, 'hard');
@@ -217,10 +221,26 @@ for k=1:1:length(Tsigma)
     
 end
 
+
+
 figure()
 clf;
 plot(Tsigma,snr_soft,Tsigma,snr_hard);
 legend('Soft','Hard');
+
+% Veo los mejores umbrales
+[ms,poss] = max(snr_soft);
+[mh,posh] = max(snr_hard);
+
+SnTh = perform_thresholding(Sn, Tsigma(posh)*sigma, 'hard');
+x2h = perform_stft(SnTh,w,q, options);
+SnTs = perform_thresholding(Sn, Tsigma(poss)*sigma*0.5, 'soft');
+x2s = perform_stft(SnTs,w,q, options);
+
+figure()
+subplot(3,1,1),plot(xn); title(sprintf('Señal con ruido, SNR=%.4f dB',snr(x,xn)));
+subplot(3,1,2),plot(x2h); title(sprintf('Señal umbralizada hard, SNR=%.4f dB',snr(x,x2h)));
+subplot(3,1,3),plot(x2s); title(sprintf('Señal umbralizada soft, SNR=%.4f dB',snr(x,x2s)));
 
 %SNR
 %-10*log10(norm(xn-x2h)/norm(xn))
