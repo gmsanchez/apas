@@ -262,7 +262,8 @@ plot_spectrogram(Sn);
 subplot(2,1,2);
 plot_spectrogram(SnT);
 
-close all;
+% Exercice 4: (the solution is exo4.m) Trie for various block sizes and 
+% report the best results.
 
 snr_block = zeros(4,4);
 for k=1:1:4
@@ -292,5 +293,3 @@ subplot(2,1,1),plot(xn); title(sprintf('Señal con ruido, SNR=%.4f dB',snr(x,xn)
 subplot(2,1,2),plot(x2b); title(sprintf('Señal umbralizada hard, SNR=%.4f dB',snr(x,x2b)));
 
 
-% Exercice 4: (the solution is exo4.m) Trie for various block sizes and 
-% report the best results.
