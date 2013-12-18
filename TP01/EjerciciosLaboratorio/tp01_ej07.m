@@ -27,6 +27,8 @@ plot(conv(x,y),'r+'); hold on;
 plot(conv(y,x),'bo'); hold off;
 legend('conv(x,y)','conv(y,x)');
 grid on;
+fprintf('Norma-2 de la diferencia: %.10f\n',...
+    norm(conv(x,y)-conv(y,x),2));
 
 %% Inciso 2: Asociativa
 figure(3)
@@ -34,7 +36,8 @@ plot(conv(x,conv(y,w)),'r+'); hold on;
 plot(conv(conv(x,y),w),'bo'); hold off;
 legend('conv(x,conv(y,w))','conv(conv(x,y),w)');
 grid on;
-
+fprintf('Norma-2 de la diferencia: %.10f\n',...
+    norm(conv(x,conv(y,w))-conv(conv(x,y),w),2));
 
 %% Inciso 3: Distributiva
 figure(4)
@@ -42,7 +45,10 @@ plot(conv(x,(y+w)),'r+'); hold on;
 plot(conv(x,y)+conv(x,w),'bo'); hold off;
 legend('conv(x,(y+w))','conv(x,y)+conv(x,w)');
 grid on;
+fprintf('Norma-2 de la diferencia: %.10f\n',...
+    norm(conv(x,(y+w))-conv(x,y)-conv(x,w),2));
 
 %% Conclusiones
-% Como se puede ver a partir de las figuras, la convolución cumple con las
-% propiedades conmutativa, asociativa y distributiva.
+% Como se puede ver a partir de las figuras y de los resultados numericos, 
+% la convolución cumple con las propiedades conmutativa, asociativa y 
+% distributiva.
