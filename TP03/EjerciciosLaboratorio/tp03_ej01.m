@@ -262,5 +262,35 @@ plot_spectrogram(Sn);
 subplot(2,1,2);
 plot_spectrogram(SnT);
 
+close all;
+
+snr_block = zeros(4,4);
+for k=1:1:4
+    for l=1:1:4
+        options.block_size = [k, l];
+        SnTb = perform_thresholding(Sn, sigma, 'block', options);
+        x2b = perform_stft(SnTb,w,q, options);
+        snr_block(k,l) = snr(x,x2b);
+    end
+end
+
+figure();
+imagesc(snr_block)
+colormap(gray)
+%plot(Tsigma,snr_block);
+
+[mb, posb] = max(snr_block(:));
+[k,l] = ind2sub(size(snr_block),posb);
+
+options.block_size = [k, l];
+
+SnTb = perform_thresholding(Sn, sigma, 'block', options);
+x2b = perform_stft(SnTb,w,q, options);
+
+figure()
+subplot(2,1,1),plot(xn); title(sprintf('Señal con ruido, SNR=%.4f dB',snr(x,xn)));
+subplot(2,1,2),plot(x2b); title(sprintf('Señal umbralizada hard, SNR=%.4f dB',snr(x,x2b)));
+
+
 % Exercice 4: (the solution is exo4.m) Trie for various block sizes and 
 % report the best results.
