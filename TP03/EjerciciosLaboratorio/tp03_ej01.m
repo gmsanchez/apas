@@ -204,13 +204,16 @@ snr_soft = 0.*Tsigma;
 snr_hard = 0.*Tsigma;
 
 for k=1:1:length(Tsigma)
-    SnTs = perform_thresholding(Sn, Tsigma(k)*sigma*0.5, 'soft');
-    x2s = perform_stft(SnTs,w,q, options);
-    snr_soft(k) = snr(x,x2s);
     
     SnTh = perform_thresholding(Sn, Tsigma(k)*sigma, 'hard');
     x2h = perform_stft(SnTh,w,q, options);
     snr_hard(k) = snr(x,x2h);
+    
+    % Sugerencia del autor del tutorial: Remember that a soft thresholding 
+    % should be approximately twice smaller than a hard thresholding.
+    SnTs = perform_thresholding(Sn, Tsigma(k)*sigma*0.5, 'soft');
+    x2s = perform_stft(SnTs,w,q, options);
+    snr_soft(k) = snr(x,x2s);
     
 end
 
