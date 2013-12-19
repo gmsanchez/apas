@@ -78,7 +78,13 @@ graf_wavedec(x,C,L)
 
 %% Inciso e
 %
-graf_wrcoef(x,C,L,wav)
+%%
+% Reconstruccion con las aproximaciones
+graf_wrcoef(x,C,L,wav,'a')
+
+%%
+% Reconstruccion con los detalles
+graf_wrcoef(x,C,L,wav,'d')
 
 %% Anexo
 

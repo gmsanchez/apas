@@ -1,4 +1,4 @@
-function graf_wrcoef( x, coef, largo, wav )
+function graf_wrcoef( x, coef, largo, wav , aod)
 
 NMAX = length(largo)-2;
 figure()
@@ -16,9 +16,15 @@ for n=1:1:NMAX
             NMAX-(n-1)));
     else
         figure()
-        plot(wrcoef('d',coef,largo,wav,NMAX-(n-1)));
-        title(sprintf('Reconst. con detalle nivel %d', ... 
-            NMAX-(n-1)));
+        if strcmp(aod,'a')
+            tit = 'aproximacion';
+        else
+            tit = 'detalle';
+        end
+        
+        plot(wrcoef(aod,coef,largo,wav,NMAX-(n-1)));
+        title(sprintf('Reconst. con %s nivel %d', ... 
+           tit, NMAX-(n-1)));
     end
 
 end
