@@ -10,6 +10,10 @@ for n=1:1:NMAX
         plot(wrcoef('a',coef,largo,wav,NMAX-(n-1)));
         title(sprintf('Reconst. con aproximación nivel %d', ...
             NMAX-(n-1)));
+        figure()
+        plot(wrcoef('d',coef,largo,wav,NMAX-(n-1)));
+        title(sprintf('Reconst. con detalle nivel %d', ... 
+            NMAX-(n-1)));
     else
         figure()
         plot(wrcoef('d',coef,largo,wav,NMAX-(n-1)));
