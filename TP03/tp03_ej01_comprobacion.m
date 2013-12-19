@@ -1,3 +1,5 @@
+%% Guia 3 - Ejercicio 1
+
 %% Verificacion numerica condicion de admisibilidad diadica
 
 N = 20;
@@ -21,3 +23,5 @@ end
 
 A = min(sum)
 B = max(sum)
+
+plot(w,sum)
