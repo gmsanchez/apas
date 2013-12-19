@@ -39,7 +39,7 @@ close all;
 
 load internet-traffic-data-in-bits-fr1
 
-x = internet_traffic_data_in_bits_ft_quantity(512:512+2^10-1);
+x = internet_traffic_data_in_bits_ft_quantity(512:512+2^11-1);
 
 %% Inciso a 
 %
