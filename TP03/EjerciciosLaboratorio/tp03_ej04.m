@@ -37,15 +37,13 @@
 clear all;
 close all;
 
-numericaltour;
-
 load internet-traffic-data-in-bits-fr1
 
-x = internet_traffic_data_in_bits_ft_quantity(1000:1000+2^30-1);
+x = internet_traffic_data_in_bits_ft_quantity(512:512+2^10-1);
 
 %% Inciso a 
 %
-wav = 'db7'
+wav = 'db9';
 [cA1,cD1] = dwt(x,wav,'per');
 [cA2,cD2] = dwt(cA1,wav,'per');
 [cA3,cD3] = dwt(cA2,wav,'per');
@@ -69,10 +67,25 @@ c1_err = norm(C-[cA3 cD3 cD2 cD1]);
 fprintf('La decomposición tiene un error de %.4f\n', ...
     c1_err);
 
-xrec_c = waverec(C,L,wav,'per');
+xrec_c = waverec(C,L,wav);
 c2_err = norm(xrec_c-xr0);
 fprintf('La reconstruccion tiene un error de %.4f\n', ...
     c2_err);
 
 %% Inciso d
 %
+graf_wavedec(x,C,L)
+
+%% Inciso e
+%
+graf_wrcoef(x,C,L,wav)
+
+%% Anexo
+
+%%
+% Función graf_wavedec
+dbtype graf_wavedec.m
+
+%%
+% Función graf_wrcoef
+dbtype graf_wrcoef.m
