@@ -9,8 +9,8 @@ L = 2^5;
 
 xl = low(L);
 xh = high(L);
-h = ma_filter();
-g = md_filter();
+h = ma_filter(0);
+g = md_filter(0);
 
 % figure()
 % subplot(3,1,1),stem(xl); 
@@ -31,3 +31,4 @@ figure()
 subplot(3,1,1),stem(xh);
 subplot(3,1,2),stem(my_cconv(xh,h));
 subplot(3,1,3),stem(my_cconv(xh,g));
+
