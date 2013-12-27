@@ -55,4 +55,8 @@ end
 eq7e = abs(Hw).^2+abs(Gw).^2;
 
 figure()
+xaxis = [0:pi:2*pi];
+xaxisl = {'0' , 'p' '2p'};
 plot(w,abs(Hw),'r',w,abs(Gw),'b',w,eq7e,'g');
+set(gca,'xtick',xaxis)
+set(gca,'xticklabel',xaxisl, 'fontname', 'symbol');
