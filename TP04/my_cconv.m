@@ -4,7 +4,9 @@ function [ y ] = my_cconv( x,h,delay )
     if nargin<3
         delay=0;
     end
-        
+    
+    h = circshift(h,delay);
+    
     nx = length(x);
     nh = length(h);
     ny = max(nx,nh);
@@ -18,9 +20,6 @@ function [ y ] = my_cconv( x,h,delay )
         y = zeros(ny,1);
     end
     
-    h = circshift(h,delay);
-
-    
     if nh<ny
         h = padarray(h,ny-nh,'post');
     end
@@ -29,6 +28,7 @@ function [ y ] = my_cconv( x,h,delay )
         x = paddarray(x,ny-nx,'circular','post');
     end
     
+    % Realizo la convolucion
     for n=1:ny
         for m=1:ny
             j = mod(n-m,ny);
