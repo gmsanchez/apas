@@ -32,7 +32,9 @@ subplot(3,1,1),stem(xh);
 subplot(3,1,2),stem(my_cconv(xh,h));
 subplot(3,1,3),stem(my_cconv(xh,g));
 
-
+%% Haar
+h = ma_filter(1);
+g = md_filter(1);
 %% DB4
 [h, g] = db4(1);
 
