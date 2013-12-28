@@ -5,8 +5,6 @@ function [ y ] = my_cconv( x,h,delay )
         delay=0;
     end
     
-    h = circshift(h,delay);
-    
     nx = length(x);
     nh = length(h);
     ny = max(nx,nh);
@@ -27,6 +25,8 @@ function [ y ] = my_cconv( x,h,delay )
     if nx<ny
         x = paddarray(x,ny-nx,'circular','post');
     end
+    
+    h = circshift(h,delay);
     
     % Realizo la convolucion
     for n=1:ny
