@@ -55,3 +55,7 @@ Title{1} = 'DB4';
 
 % Graficamos
 plot_ej4c;
+
+%% Anexo
+% script plot_ej4c.m
+dbtype plot_ej4c.m

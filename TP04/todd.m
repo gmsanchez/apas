@@ -1,5 +1,9 @@
 function [ a, d, c, l ] = todd( x, h, g, N )
 
+if isrow(x)
+    x = x(:);
+end
+
 lx = length(x);
 mlvl = maxlevel(x);
 

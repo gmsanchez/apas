@@ -24,11 +24,11 @@ dbtype my_dstep.m
 % filtros Haar y DB4 normalizados Grafique la magnitud de la 
 % transformada de Fourier de las señales después del filtrado, y 
 % después del submuestreo, y compárelas con la de la señal original
-% ya analizada.
-	
+% ya analizada.	
 
 % Obtenemos nuestra senoidal
 get_senoidal
+
 % Graficamos su espectro de magnitud
 figure()
 plot(abs(fft(y)));
@@ -59,3 +59,7 @@ Title{1} = 'DB4';
 
 % Graficamos
 plot_ej3c;
+
+%% Anexo
+% script plot_ej3c.m
+dbtype plot_ej3c.m

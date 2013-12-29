@@ -1,13 +1,13 @@
 function [ x ] = itodd( c,l,h,g,lvl )
 
-NMAX = length(l)-2
+NMAX = length(l)-2;
 if nargin<5
-    N = NMAX
+    N = NMAX;
 else
     if lvl<NMAX
-        N = lvl
+        N = lvl;
     else
-        N = NMAX
+        N = NMAX;
     end
 end
     
@@ -18,7 +18,7 @@ for k=2:N+1
     p2 = sum(l(1:k));
     d = c(p1:p2);
     a = my_rstep(a,d,h,g);
-    size(a)
+    % size(a)
 end
 
 x = a;
