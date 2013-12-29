@@ -5,7 +5,7 @@ close all;
 get_senoidal;
 [h,g] = db4(1);
 
-[a,d] = todd(y,h,g,5);
+[a,d,c,l] = todd(y,h,g,5);
 
 %%
 N = 5;
@@ -18,7 +18,6 @@ for k=2:N
 end
 
 %%
-dwt(y,h,g)
 [a1,d1] = dwt(y,h,g,'mode','per');
 [a2,d2] = dwt(a1,h,g,'mode','per');
 [a3,d3] = dwt(a2,h,g,'mode','per');
@@ -30,3 +29,17 @@ norm(d4-d{4}')
 norm(d3-d{3}')
 norm(d2-d{2}')
 norm(d1-d{1}')
+
+
+%%
+close all
+yr = itodd(c,l,h,g);
+
+size(yr)
+size(y)
+figure()
+plot(y,'ro'); hold on;
+plot(yr,'b+'); hold off
+
+norm(y(:)-yr(:))
+
