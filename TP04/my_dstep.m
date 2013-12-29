@@ -1,31 +1,30 @@
-function [ a, d ] = my_dstep( x, h, g )
+function [ a, d ] = my_dstep( x, h, g, do_plot )
 
-x = x(:);
+if nargin<4
+    do_plot = 0;
+end
 
 lf = length(h);
 delay = floor(lf*0.5);
 
-% Realizo convolución con delay
-a = my_downsample(my_cconv(x,h,-delay));
-d = my_downsample(my_cconv(x,g,-delay));
+af = my_cconv(x,h,-delay);
+df = my_cconv(x,g,-delay);
+a = my_downsample(af);
+d = my_downsample(df);
 
 % Para el 3.c
-do_plot = 1;
 if do_plot
-    a_plot = my_cconv(x,h,-delay);
-    d_plot = my_cconv(x,g,-delay);
-    
     figure()
-    subplot(2,2,1); stem(abs(fft(a_plot)));
+    subplot(2,2,1); stem(abs(fft(af)));
     title('Espectro de magnitud de a_{j+1} luego del filtrado');
     xlabel('Muestras'); axis tight;
-    subplot(2,2,2); stem(abs(fft(my_downsample(a_plot))));
+    subplot(2,2,2); stem(abs(fft(a)));
     title('Espectro de magnitud de a_{j+1} luego del submuestreo');
     xlabel('Muestras'); axis tight
-    subplot(2,2,3); stem(abs(fft(d_plot)));
+    subplot(2,2,3); stem(abs(fft(df)));
     title('Espectro de magnitud de d_{j+1} luego del filtrado');
     xlabel('Muestras'); axis tight
-    subplot(2,2,4); stem(abs(fft(my_downsample(d_plot))));
+    subplot(2,2,4); stem(abs(fft(d)));
     title('Espectro de magnitud de d_{j+1} luego del submuestreo');
     xlabel('Muestras'); axis tight
 end

@@ -1,18 +1,57 @@
 %% Guia 4 - Ejercicio 1
 %
-tp04_ej03;
 
-%%
+%% Código fuente y resultados
+clear all
+close all
 
-for k=1:length(ca)
-yr = my_rstep(ca{k},cd{k},Lo_D{k},Hi_D{k});
+%% Inciso a)
+% Función que realiza el sobremuestreo de una señal mediante el agregado de 
+% ceros. Por ejemplo, para la señal [1 2 3] debe producir [0 1 0 2 0 3].
+dbtype my_upsample.m
 
-%%
-figure()
-plot(t,y,'ro');
-hold on;
-title(sprintf('Reconstruccion con %s',Title{k}));
-plot(t,yr,'b+');
-hold off;
+%% Inciso b)
+% Implemente la primer etapa de la reconstrucción con banco de filtros en 
+% la función rstep.
 
-end
+dbtype my_rstep.m
+
+%% Incisos c) y d)
+% Utilice esta función para reconstruir la señal sinusoidal anteriormente 
+% analizada con los filtros Haar y DB4 normalizados. Grafique la magnitud 
+% de la transformada de Fourier de las señales después del sobremuestreo y 
+% después del filtrado (pero antes de sumar las señales)
+
+% Obtenemos nuestra senoidal
+get_senoidal
+
+%% Inciso c) Haar
+	
+% Haar
+h = ma_filter(1);
+g = md_filter(1);
+
+Lo_D{1} = h;
+Hi_D{1} = g;
+Title{1} = 'Haar';
+
+% Obtenemos los coeficientes de aproximación y detalle
+[ ca{1}, cd{1} ] = my_dstep(y,Lo_D{1},Hi_D{1});
+
+% Graficamos
+plot_ej4c;
+
+%% Inciso d) DB4
+	
+% DB4
+[h, g] = db4(1);
+
+Lo_D{1} = h;
+Hi_D{1} = g;
+Title{1} = 'DB4';
+
+% Obtenemos los coeficientes de aproximación y detalle
+[ ca{1}, cd{1} ] = my_dstep(y,Lo_D{1},Hi_D{1});
+
+% Graficamos
+plot_ej4c;
