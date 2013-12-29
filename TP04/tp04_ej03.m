@@ -1,4 +1,4 @@
-%% Guia 4 - Ejercicio 1
+%% Guia 4 - Ejercicio 3
 %
 clear all
 close all
