@@ -1,23 +1,24 @@
 %% Guia 4 - Ejercicio 1
 %
+	
+%% C√≥digo fuente y resultados
+%
+ 
 clear all
 close all
 
-%% GeneraciÛn de se~nales.
-% Se generaran las se~nales que se utilizar·n en el resto de la guÌa.
-
-%% Inciso a) FunciÛn low
+%% Inciso a) Funci√≥n low
 dbtype low.m
 
-%% Inciso b) FunciÛn high
+%% Inciso b) Funci√≥n high
 dbtype high.m
 
 %% Inciso c)
-% A continuaciÛn se ven las gr·ficas de cada seÒal junto con su espectro de
-% magnitud. Se puede apreciar que la seÒal low tiene componentes en las
-% bajas frecuencias mientras que la seÒal high tiene componentes en las
-% altas frecuencias. Eso tambiÈn se puede ver en la representaciÛn temporal
-% de la seÒal al notar la cantidad de oscilaciones que presenta cada una de
+% A continuaci√≥n se ven las gr√°ficas de cada se√±al junto con su espectro de
+% magnitud. Se puede apreciar que la se√±al low tiene componentes en las
+% bajas frecuencias mientras que la se√±al high tiene componentes en las
+% altas frecuencias. Eso tambi√©n se puede ver en la representaci√≥n temporal
+% de la se√±al al notar la cantidad de oscilaciones que presenta cada una de
 % ellas.
 
 L = 2^5;
@@ -26,20 +27,20 @@ xh = high(L);
 
 figure()
 subplot(2,1,1),stem(xl);
-title('Se~nal low'); xlabel('Muestras');
+title('Se√±al low'); xlabel('Muestras');
 subplot(2,1,2),stem(abs(fft(xl)));
 title('Espectro de magnitud de low'); xlabel('Muestras');
 
 figure()
 subplot(2,1,1),stem(xh);
-title('Se~nal high'); xlabel('Muestras');
+title('Se√±al high'); xlabel('Muestras');
 subplot(2,1,2),stem(abs(fft(xh)));
 title('Espectro de magnitud de high'); xlabel('Muestras');
 
 %% Inciso d)
-% Se genera una se~nal sinusoidal muestreada a 1024 Hz, durante un segundo, 
-% cuya frecuencia aumenta linealmente desde 0 a 500 Hz durante su duraciÛn. 
-% La amplitud de la se~nal decae linealmente desde 1 a 0 en el lapso de 
+% Se genera una se√±al sinusoidal muestreada a 1024 Hz, durante un segundo, 
+% cuya frecuencia aumenta linealmente desde 0 a 500 Hz durante su duraci√≥n. 
+% La amplitud de la se√±al decae linealmente desde 1 a 0 en el lapso de 
 % tiempo.
 
 dbtype get_senoidal
@@ -49,17 +50,17 @@ get_senoidal
 
 
 %% Inciso e)
-% Al ver el espectro de magnitud de esta se~nal, podemos apreciar que se
+% Al ver el espectro de magnitud de esta se√±al, podemos apreciar que se
 % ve que existen componentes desde 0 a 500 Hz y que la amplitud decae
 % linealmente a medida que aumentamos la frecuencia. Esto coincide con la
-% forma en que se generÛ la se~nal, dado que a medida que la frecuencia
+% forma en que se gener√≥ la se√±al, dado que a medida que la frecuencia
 % crece, la amplitud decae (y ambas lo hacen a la misma tasa). El
-% espectrograma muestra claramente la evoluciÛn de la frecuencia de la 
-% se~nal a medida que pasa el tiempo.
+% espectrograma muestra claramente la evoluci√≥n de la frecuencia de la 
+% se√±al a medida que pasa el tiempo.
 
 figure()
 subplot(3,1,1),plot(t,y);
-title('Se~nal senoidal'); xlabel('Tiempo [s]');
+title('Se√±al senoidal'); xlabel('Tiempo [s]');
 grid on; axis tight;
 vf = -fm/2:fm/N:fm/2-fm/N;
 subplot(3,1,2),plot(vf,fftshift(abs(fft(y))));
