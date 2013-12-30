@@ -90,6 +90,9 @@ dbtype ma_filter.m
 % Código fuente de la función md_filter
 dbtype md_filter.m
 
+%%
+% Se realizo una funcion que devuelve ambos filtros, la que se denominó haar
+dbtype haar.m
 
 %% Inciso d)
 % Escriba una función para generar los filtros que tras su normalización 
