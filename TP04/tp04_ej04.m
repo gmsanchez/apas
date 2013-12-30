@@ -28,11 +28,7 @@ get_senoidal
 %% Inciso c) Haar
 	
 % Haar
-h = ma_filter(1);
-g = md_filter(1);
-
-Lo_D{1} = h;
-Hi_D{1} = g;
+[Lo_D{1},Hi_D{1},Lo_R{1},Hi_R{1}] = haar(1);
 Title{1} = 'Haar';
 
 % Obtenemos los coeficientes de aproximación y detalle
@@ -44,10 +40,7 @@ plot_ej4c;
 %% Inciso d) DB4
 	
 % DB4
-[h, g] = db4(1);
-
-Lo_D{1} = h;
-Hi_D{1} = g;
+[Lo_D{1},Hi_D{1},Lo_R{1},Hi_R{1}] = db4(1);
 Title{1} = 'DB4';
 
 % Obtenemos los coeficientes de aproximación y detalle

@@ -1,5 +1,5 @@
 for k=1:length(ca)
-    yr = my_rstep(ca{k},cd{k},Lo_D{k},Hi_D{k},1);
+    yr = my_rstep(ca{k},cd{k},Lo_R{k},Hi_R{k},1);
     figure()
     plot(t,y,'ro');
     hold on;

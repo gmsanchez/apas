@@ -1,4 +1,4 @@
-function [ varargout ] = db4(nrm,o)
+function [ varargout ] = haar( nrm,o )
 
 nbIn = nargin;
 if nbIn<1
@@ -9,8 +9,8 @@ if ~any([0 1 2 4 8]==nbOut)
     error('Invalid number of output arguments.');
 end
 
-h = 1/8*[1+sqrt(3);  3+sqrt(3); 3-sqrt(3);  1-sqrt(3)];
-g = 1/8*[1-sqrt(3); -3+sqrt(3); 3+sqrt(3); -1-sqrt(3)];
+h = [0.5; 0.5];
+g = [0.5; -0.5];
 
 if nrm
     h = h./norm(h);
@@ -35,5 +35,7 @@ else
             error('Invalid argument value.');
     end
 end
-            
+
+
 end
+

@@ -7,13 +7,13 @@ end
 aup = my_upsample(a);
 dup = my_upsample(d);
 
-h = flip(h);
-g = flip(g);
+%h = flip(h);
+%g = flip(g);
 
 lf = length(h);
 delay = floor(lf*0.5);
 
-% Realizo convolución con delay
+% Realizo convoluciï¿½n con delay
 xa = my_cconv(aup,h,-delay);
 xd = my_cconv(dup,g,-delay);
 

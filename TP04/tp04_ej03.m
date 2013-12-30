@@ -38,12 +38,9 @@ xlabel('Muestras'); axis tight
 %% Inciso c) Haar
 	
 % Haar
-h = ma_filter(1);
-g = md_filter(1);
-
-Lo_D{1} = h;
-Hi_D{1} = g;
+[Lo_D{1},Hi_D{1}] = haar(1,'d');
 Title{1} = 'Haar';
+wav{1} = 'haar';
 
 % Graficamos
 plot_ej3c;
@@ -51,12 +48,9 @@ plot_ej3c;
 %% Inciso d) DB4
 	
 % DB4
-[h, g] = db4(1);
-
-Lo_D{1} = h;
-Hi_D{1} = g;
+[Lo_D{1}, Hi_D{1}] = db4(1,'d');
 Title{1} = 'DB4';
-
+wav{1} = 'db2';
 % Graficamos
 plot_ej3c;
 
