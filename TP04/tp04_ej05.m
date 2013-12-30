@@ -37,41 +37,40 @@ get_senoidal
 
 %% Haar
 display('=== Haar ===')
-h = ma_filter(1);
-g = md_filter(1);
+[Lo_D,Hi_D,Lo_R,Hi_R] = haar(1);
 
 % Genero descomposición hasta el nivel 5
 N = 5;
-[a,d,c,l] = todd(y,h,g,N);
+[a,d,c,l] = todd(y,Lo_D,Hi_D,N);
 % Comparo con dwt
-[a1,d1] = dwt(y,h,g,'mode','per');
-[a2,d2] = dwt(a1,h,g,'mode','per');
-[a3,d3] = dwt(a2,h,g,'mode','per');
-[a4,d4] = dwt(a3,h,g,'mode','per');
-[a5,d5] = dwt(a4,h,g,'mode','per');
+[a1,d1] = dwt(y,'haar','mode','per');
+[a2,d2] = dwt(a1,'haar','mode','per');
+[a3,d3] = dwt(a2,'haar','mode','per');
+[a4,d4] = dwt(a3,'haar','mode','per');
+[a5,d5] = dwt(a4,'haar','mode','per');
 
 % Reconstruyo la señal
-yr = itodd(c,l,h,g);
+yr = itodd(c,l,Lo_R,Hi_R);
 
 % Saco resultados
 plot_ej5d
 
 %% DB4
 display('=== DB4 ===')
-[h,g] = db4(1);
+[Lo_D,Hi_D,Lo_R,Hi_R] = db4(1);
 
 % Genero descomposición hasta el nivel 5
 N = 5;
-[a,d,c,l] = todd(y,h,g,N);
+[a,d,c,l] = todd(y,Lo_D,Hi_D,N);
 % Comparo con dwt
-[a1,d1] = dwt(y,h,g,'mode','per');
-[a2,d2] = dwt(a1,h,g,'mode','per');
-[a3,d3] = dwt(a2,h,g,'mode','per');
-[a4,d4] = dwt(a3,h,g,'mode','per');
-[a5,d5] = dwt(a4,h,g,'mode','per');
+[a1,d1] = dwt(y,'db2','mode','per');
+[a2,d2] = dwt(a1,'db2','mode','per');
+[a3,d3] = dwt(a2,'db2','mode','per');
+[a4,d4] = dwt(a3,'db2','mode','per');
+[a5,d5] = dwt(a4,'db2','mode','per');
 
 % Reconstruyo la señal
-yr = itodd(c,l,h,g);
+yr = itodd(c,l,Lo_R,Hi_R);
 
 % Saco resultados
 plot_ej5d
