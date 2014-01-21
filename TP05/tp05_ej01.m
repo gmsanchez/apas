@@ -3,7 +3,7 @@
 clear all
 close all
 
-l0 = [1 5 10];
+l0 = [1 5 2];
 nl0 = length(l0);
 phi = cell(1,1);
 
@@ -20,7 +20,7 @@ plot_ej5
 
 %% Inciso 2: Base canónica
 Inciso = 2;
-phi{1} = eye(64,64);
+phi{1} = eye(12);
 plot_ej5
 
 %%
@@ -30,7 +30,7 @@ plot_ej5
 
 %% Inciso 3: Parte real de las exponenciales de la base de Fourier discreta
 Inciso = 3;
-phi{1} = real(dftmtx(64));
+phi{1} = normc(real(dftmtx(12)));
 plot_ej5
 
 %%
