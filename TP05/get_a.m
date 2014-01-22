@@ -18,5 +18,9 @@ if strcmp(f,'col')
     a = a(:);
 end
 
+if strcmp(f,'row')
+    a = a(:)';
+end
+
 end
 
