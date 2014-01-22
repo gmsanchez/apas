@@ -21,4 +21,5 @@ end
 
 x = phi*a;
 
+%%
 [phi_hat,a_hat] = my_mod(x,M);
