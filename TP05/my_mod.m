@@ -12,9 +12,10 @@ N = size(x,1);
 realizations = size(x,2);
 
 % Inicializo y normalizo Phi.
-% phi = normc(randn(N,M));
+%phi = normc(randn(N,M))
 phi = x(:,randperm(realizations,M))
 pause
+
 % Inicializo a
 a = phi'*x;
 % Error inicial
@@ -29,11 +30,13 @@ k = 0;
 while abs(err0-err1)>tol0
 
 for r=1:realizations
-    a(:,r)=my_mod_scs(x(:,r),phi);
+    %a(:,r)=my_mod_scs(x(:,r),phi,2);
+    a(:,r)=my_lbp(x(:,r),phi);
 end
 
 % figure(1); imagesc(a); drawnow;
 phi = x*a'*inv(a*a')
+
 % 
 err0 = err1;
 err1 = norm(x-phi*a,'fro')^2;

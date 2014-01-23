@@ -1,8 +1,11 @@
-function [ a ] = my_mod_scs( x,phi )
+function [ a ] = my_mod_scs( x,phi,k0 )
 
+if nargin<3
+    k0 = 50;
+end
 % Inicializo a
 a = phi'*x;
-k0 = 2;
+%k0 = 2;
 
 options = optimoptions('fmincon','Algorithm','active-set');%,'Display','none');
 norm2par=@(a)norm2(x,phi,a);

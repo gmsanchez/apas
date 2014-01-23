@@ -1,18 +1,18 @@
 %% Guia 5, Ejercicio 5
 %
 
-clear all
+%clear all
 close all
 
-l0 = 1;
+l0 = 2;
 nl0 = length(l0);
 
 % Base canónica
 N = 5;
 M = 5;
 phi = eye(N,M);
-
-realizations = 150;
+phi = normc(real(dftmtx(N)));
+realizations = 2000;
 a = zeros(M,realizations);
 
 for r=1:realizations
@@ -21,5 +21,6 @@ end
 
 x = phi*a;
 
+break
 %%
 [phi_hat,a_hat] = my_mod(x,M);
