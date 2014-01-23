@@ -8,11 +8,11 @@ l0 = 2;
 nl0 = length(l0);
 
 % Base canónica
-N = 5;
-M = 5;
-phi = eye(N,M);
+N = 20;
+M = 20;
+% phi = eye(N,M);
 phi = normc(real(dftmtx(N)));
-realizations = 2000;
+realizations = 1000;
 a = zeros(M,realizations);
 
 for r=1:realizations
@@ -21,6 +21,13 @@ end
 
 x = phi*a;
 
-break
+
 %%
-[phi_hat,a_hat] = my_mod(x,M);
+[phi_hat,a_hat] = my_mod(x,M,l0);
+
+norm(x-phi_hat*a,'fro')
+
+%%
+k = 1;
+close all
+plot(x(:,k),'r-o'); hold on; plot(phi_hat*a_hat(:,k),'b-+');
