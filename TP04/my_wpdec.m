@@ -37,13 +37,12 @@ for k=0:lvl-1
     lvl_iter = length(lvl_nodes);
     lvl_length = N/(2^k);
     for n=1:lvl_iter
-        node_depo = [k, lvl_nodes(n)]
-        node_idx = depo2ind(depth,node_depo)
+        node_idx = 2^k-1+lvl_nodes(n);
         if length(nodedesc(t,node_idx))>1
             p1 = lvl_length*lvl_nodes(n)+1;
             p2 = lvl_length*(lvl_nodes(n)+1);
-            %p1 = lvl_length*(n-1)+1
-            %p2 = lvl_length*n
+            fprintf('Descompongo elemento %d/[%d %d], c(%d:%d)\n',...
+                node_idx,k,lvl_nodes(n),p1,p2);
             [a,d] = my_dstep(c(p1:p2),Lo_D,Hi_D);
             c(p1:p2) = [a d];
         end
