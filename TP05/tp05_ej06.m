@@ -1,7 +1,11 @@
 %% Guia 5, Ejercicio 6
-%
+% Utilice el algoritmo MOD desarrollado en el ejercicio anterior para 
+% estimar los diccionarios utilizados a partir de los datos artificiales 
+% generados en el Ejercicio N° 4. Grafique el error cuadrático medio en la 
+% estimación de  ??, utilizando BP y MP para el cálculo de los 
+% coeficientes, en función de l0(a).
 
-%clear all
+clear all
 close all
 
 l0 = 2;
