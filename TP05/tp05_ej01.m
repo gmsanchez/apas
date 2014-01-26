@@ -1,5 +1,11 @@
 %% Guia 5, Ejercicio 1
-%
+% Implemente una función que permita generar una señal sintética artificial
+% x ? R^N a partir de un diccionario ? ? R^(N×M) dado y un vector aleatorio
+% de coeficientes a ? R^M de "norma" l0 conocida. Suponga un modelo 
+% generativo lineal del tipo x = ?a. Pruebe la función utilizando vectores 
+% a cuyos elementos distintos de cero sean iid con distribución uniforme 
+% en el rango [?2, -1] ? [1, 2].
+
 clear all
 close all
 
