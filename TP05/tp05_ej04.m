@@ -24,10 +24,10 @@ a_hat_mp = a;
 a_hat_bp = a;
 x_hat_mp = x;
 x_hat_bp = x;
-rms_a_mp = a;
-rms_a_bp = a;
-rms_x_mp = x;
-rms_x_bp = x;
+rms_a_mp = zeros(1,K);
+rms_a_bp = zeros(1,K);
+rms_x_mp = zeros(1,K);
+rms_x_bp = zeros(1,K);
 
 % Phi aleatorio, mismo Phi para todos.
 phi = normc(randn(N,M));
@@ -56,48 +56,28 @@ end
 
 %% Mido los errores
 for l=1:K
-    rms_a_mp{l} = rms(a{l}-a_hat_mp{l});
-    rms_a_bp{l} = rms(a{l}-a_hat_bp{l});
-    rms_x_mp{l} = rms(x{l}-x_hat_mp{l});
-    rms_x_bp{l} = rms(x{l}-x_hat_bp{l});
-    figure(1);
-    subplot(K/2,2,l);
-    plot(rms_a_mp{l}); title(sprintf('RMS a, l0(a)=%d',l));
-    figure(2)
-    subplot(K/2,2,l);
-    plot(rms_x_mp{l}); title(sprintf('RMS x, l0(a)=%d',l));
-    
-    figure(3)
-    subplot(K/2,2,l);
-    plot(rms_a_bp{l}); title(sprintf('RMS a, l0(a)=%d',l));
-    figure(4)
-    subplot(K/2,2,l);
-    plot(rms_x_bp{l}); title(sprintf('RMS x, l0(a)=%d',l));
-
+    rms_a_mp(l) = rms(rms(a{l}-a_hat_mp{l}));
+    rms_a_bp(l) = rms(rms(a{l}-a_hat_bp{l}));
+    rms_x_mp(l) = rms(rms(x{l}-x_hat_mp{l}));
+    rms_x_bp(l) = rms(rms(x{l}-x_hat_bp{l}));
 end
 
-figure(1), suptitle('RMS a utilizando MP');
-figure(2), suptitle('RMS x utilizando MP');
-figure(3), suptitle('RMS a utilizando LBP');
-figure(4), suptitle('RMS x utilizando LBP');
-
-%% RMS de los RMS
-for l=1:K
-    rms_a_bp1(l) = rms(rms_a_bp{l});
-    rms_a_mp1(l) = rms(rms_a_mp{l});
-    rms_x_bp1(l) = rms(rms_x_bp{l});
-    rms_x_mp1(l) = rms(rms_x_mp{l});
-end
 figure()
-plot(rms_a_bp1,'r');
+plot(rms_a_bp,'r-sq');
 hold on;
-plot(rms_a_mp1,'g');
+plot(rms_a_mp,'g-*');
 hold off;
 legend('BP','MP');
+xlabel('l0(a)');
+ylabel('RMS');
+title('RMS de $\hat{a}$','Interpreter','latex');
 
 figure()
-semilogy(rms_x_bp1,'r');
+plot(rms_x_bp,'r-sq');
 hold on;
-semilogy(rms_x_mp1,'g');
+plot(rms_x_mp,'g-*');
 hold off;
 legend('BP','MP');
+xlabel('l0(a)');
+ylabel('RMS');
+title('RMS de $\hat{x}$','Interpreter','latex');
