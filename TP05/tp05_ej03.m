@@ -1,16 +1,16 @@
 %% Guia 5, Ejercicio 3
-% Utilizando la "convexificación" del problema de representación rala en 
-% términos de la norma l1:
+% Utilizando la "convexificaciÃ³n" del problema de representaciÃ³n rala en 
+% tÃ©rminos de la norma l1:
 % min ||a||_1, sujeto a ?a = x
 %  a
-% implemente el algoritmo de búsqueda de bases (BP, del inglés Basis 
-% Pursuit) mediante una función que permita obtener, a partir de una señal 
-% x y un diccionario ?, el conjunto de coeficientes â óptimo. Para ello
-% puede utilizar las funciones del Toolbox de Optimización de Matlab.
+% implemente el algoritmo de bÃºsqueda de bases (BP, del inglÃ©s Basis 
+% Pursuit) mediante una funciÃ³n que permita obtener, a partir de una seÃ±al 
+% x y un diccionario $\Phi$, el conjunto de coeficientes Ã¢ Ã³ptimo. Para ello
+% puede utilizar las funciones del Toolbox de OptimizaciÃ³n de Matlab.
 
-%% Basis Pursuit mediante resolución del problema de optimización planteado.
+%% Basis Pursuit mediante resoluciÃ³n del problema de optimizaciÃ³n planteado.
 dbtype my_bp.m
 
-%% Basis Pursuit mediante la linealizacion del problema de optimización 
+%% Basis Pursuit mediante la linealizacion del problema de optimizaciÃ³n 
 % planteado.
 dbtype my_lbp.m

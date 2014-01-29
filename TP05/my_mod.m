@@ -49,7 +49,6 @@ err1 = norm(x-phi*a,'fro')^2;
 
 K=K+1;
 fprintf('Iteracion %d utilizando %s, error %.20f\n',K,method,err0-err1);
-%pause(2)
 
 if K>maxiter
     break;

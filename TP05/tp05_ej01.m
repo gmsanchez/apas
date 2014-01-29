@@ -1,11 +1,10 @@
 %% Guia 5, Ejercicio 1
-% Implemente una función que permita generar una señal sintética artificial
-% x ? R^N a partir de un diccionario ? ? R^(N×M) dado y un vector aleatorio
-% de coeficientes a ? R^M de "norma" l0 conocida. Suponga un modelo 
-% generativo lineal del tipo x = ?a. Pruebe la función utilizando vectores 
-% a cuyos elementos distintos de cero sean iid con distribución uniforme 
-% en el rango [?2, -1] ? [1, 2].
-
+% Implemente una funciÃ³n que permita generar una seÃ±al sintÃ©tica artificial
+% x perteneciente a R^N a partir de un diccionario $\Phi$ R^(NÃ—M) dado y un 
+% vector aleatorio de coeficientes a perteneciente a R^M de "norma" l0 
+% conocida. Suponga un modelo generativo lineal del tipo x = Phi*a. Pruebe 
+% la funciÃ³n utilizando vectores a cuyos elementos distintos de cero sean 
+% iid con distribuciÃ³n uniforme en el rango [-2, -1] U [1, 2].
 clear all
 close all
 

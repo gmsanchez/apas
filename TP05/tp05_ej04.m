@@ -1,11 +1,12 @@
 %% Guia 5, Ejercicio 4
-% Pruebe el desempe�o de los algoritmos de MP y BP implementados en los 
-% ejercicios anteriores utilizando se�ales aleatorias generadas mediante la 
-% funci�n del Ejercicio N� 1. Para ello genere 1000 se�ales a partir de 
+% Pruebe el desempeño de los algoritmos de MP y BP implementados en los 
+% ejercicios anteriores utilizando señales aleatorias generadas mediante la 
+% función del Ejercicio Nº 1. Para ello genere 1000 señales a partir de 
 % vectores de coeficientes aleatorios con l0(a) en el rango [1, 10] y 
-% ? ? R30�50 tambi�n aleatorio. Luego aplique ambos m�todos a cada se�al 
-% generada y grafique el error cuadr�tico medio de la reconstrucci�n de 
-% x a partir de ?�, con cada uno de los m�todos en funci�n de l0(a).
+% $\Phi $ perteneciente a R^(30x50) también aleatorio. Luego aplique ambos 
+% métodos a cada señal generada y grafique el error cuadrático medio de la 
+% reconstrucción de  x a partir de $\Phi \, \hat{a}$, con cada uno de los 
+% métodos en función de l0(a).
 
 clear all
 close all
