@@ -1,11 +1,11 @@
 %% Guia 5, Ejercicio 4
-% Pruebe el desempeño de los algoritmos de MP y BP implementados en los 
-% ejercicios anteriores utilizando señales aleatorias generadas mediante la 
-% función del Ejercicio N° 1. Para ello genere 1000 señales a partir de 
+% Pruebe el desempeï¿½o de los algoritmos de MP y BP implementados en los 
+% ejercicios anteriores utilizando seï¿½ales aleatorias generadas mediante la 
+% funciï¿½n del Ejercicio Nï¿½ 1. Para ello genere 1000 seï¿½ales a partir de 
 % vectores de coeficientes aleatorios con l0(a) en el rango [1, 10] y 
-% ? ? R30×50 también aleatorio. Luego aplique ambos métodos a cada señal 
-% generada y grafique el error cuadrático medio de la reconstrucción de 
-% x a partir de ?â, con cada uno de los métodos en función de l0(a).
+% ? ? R30ï¿½50 tambiï¿½n aleatorio. Luego aplique ambos mï¿½todos a cada seï¿½al 
+% generada y grafique el error cuadrï¿½tico medio de la reconstrucciï¿½n de 
+% x a partir de ?ï¿½, con cada uno de los mï¿½todos en funciï¿½n de l0(a).
 
 clear all
 close all
@@ -80,3 +80,24 @@ figure(1), suptitle('RMS a utilizando MP');
 figure(2), suptitle('RMS x utilizando MP');
 figure(3), suptitle('RMS a utilizando LBP');
 figure(4), suptitle('RMS x utilizando LBP');
+
+%% RMS de los RMS
+for l=1:K
+    rms_a_bp1(l) = rms(rms_a_bp{l});
+    rms_a_mp1(l) = rms(rms_a_mp{l});
+    rms_x_bp1(l) = rms(rms_x_bp{l});
+    rms_x_mp1(l) = rms(rms_x_mp{l});
+end
+figure()
+plot(rms_a_bp1,'r');
+hold on;
+plot(rms_a_mp1,'g');
+hold off;
+legend('BP','MP');
+
+figure()
+semilogy(rms_x_bp1,'r');
+hold on;
+semilogy(rms_x_mp1,'g');
+hold off;
+legend('BP','MP');
