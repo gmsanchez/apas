@@ -57,10 +57,10 @@ end
 
 %% Mido los errores
 for l=1:K
-    rms_a_mp(l) = rms(rms(a{l}-a_hat_mp{l}));
-    rms_a_bp(l) = rms(rms(a{l}-a_hat_bp{l}));
-    rms_x_mp(l) = rms(rms(x{l}-x_hat_mp{l}));
-    rms_x_bp(l) = rms(rms(x{l}-x_hat_bp{l}));
+    rms_a_mp(l) = mean(rms(a{l}-a_hat_mp{l}));
+    rms_a_bp(l) = mean(rms(a{l}-a_hat_bp{l}));
+    rms_x_mp(l) = mean(rms(x{l}-x_hat_mp{l}));
+    rms_x_bp(l) = mean(rms(x{l}-x_hat_bp{l}));
 end
 
 figure()
@@ -70,8 +70,8 @@ plot(rms_a_mp,'g-*');
 hold off;
 legend('BP','MP');
 xlabel('l0(a)');
-ylabel('RMS');
-title('RMS de $\hat{a}$','Interpreter','latex');
+ylabel('RMS Promedio');
+title('RMS Promedio de $\hat{a}$','Interpreter','latex');
 
 figure()
 plot(rms_x_bp,'r-sq');
@@ -80,5 +80,16 @@ plot(rms_x_mp,'g-*');
 hold off;
 legend('BP','MP');
 xlabel('l0(a)');
-ylabel('RMS');
-title('RMS de $\hat{x}$','Interpreter','latex');
+ylabel('RMS Promedio');
+title('RMS Promedio de $\hat{x}$','Interpreter','latex');
+
+%%
+l0a_bp = zeros(1,K);
+l0a_mp = zeros(1,K);
+for l=1:K
+    aux_bp = zeros(1,realizations);
+    aux_mp = zeros(1,realizations);
+    for r=1:realizations
+        aux_bp(r) = 
+    end
+end
