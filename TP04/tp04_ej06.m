@@ -6,9 +6,10 @@ clear all;
 % Obtenemos nuestra senoidal
 get_senoidal
 
-%% Inciso a) Escriba una funci髇 que permita calcular la descomposici髇 
-% Paquetes de Onditas completa (es decir sobre el 醨bol completo), iterando 
-% con la funci髇 dstep tanto sobre los coeficientes de aproximaci髇 como en 
+%% Inciso a) 
+% Escriba una funci贸n que permita calcular la descomposici贸n Paquetes de 
+% Onditas completa (es decir sobre el 谩rbol completo), iterando 
+% con la funci贸 dstep tanto sobre los coeficientes de aproximaci贸n como en 
 % los de escala, hasta el nivel deseado.
 
 [Lo_D,Hi_D,Lo_R,Hi_R] = db4(1);
@@ -29,22 +30,25 @@ else
 end
 end
 
-%% Inciso b) Escriba una una funci髇 wpdec que permita ingresar la 
-% estructura del 醨bol de descomposici髇 deseado y devuelva los 
-% coeficientes de la descomposici髇 obtenida, iterando la funci髇 dstep 
+%% Inciso b)
+% Escriba una una funci锟絥 wpdec que permita ingresar la 
+% estructura del 谩rbol de descomposici贸n deseado y devuelva los 
+% coeficientes de la descomposici贸n obtenida, iterando la funci贸n dstep 
 % sobre los coeficientes adecuados.
 
 dbtype my_wpdec;
 
-%% Inciso c) Escriba una funci髇 wprec que reconstruya mediante la 
-% iteraci髇 de la funci髇 rstep, una se馻l, dada su descomposici髇 generada 
-% con wpdec y la estructura del 醨bol.
+%% Inciso c)
+% Escriba una funci贸n wprec que reconstruya mediante la 
+% iteraci贸n de la funci贸n rstep, una se帽al, dada su descomposici贸n generada 
+% con wpdec y la estructura del 谩rbol.
 
 dbtype my_wprec
 
-%% Inciso d) Utilice esta descomposici髇 y reconstrucci髇 sobre una se馻l 
-% cualquiera. Grafique la se馻l original, la reconstruida y el error de 
-% reconstrucci髇. Utilice los filtros Haar y Daubechies normalizados.
+%% Inciso d)
+% Utilice esta descomposici锟絥 y reconstrucci贸n sobre una se帽al 
+% cualquiera. Grafique la se锟絘l original, la reconstruida y el error de 
+% reconstrucci贸n. Utilice los filtros Haar y Daubechies normalizados.
 Lo_D = cell(1,2); Hi_D = cell(1,2);
 Lo_R = cell(1,2); Hi_R = cell(1,2);
 
@@ -74,7 +78,7 @@ for k = 1:length(Lo_D)
     title(sprintf('Error de reconstruccion utilizando %s',wav{k}));
 end
 
-%% Anexo: C骴igo fuente de funciones utilizadas
+%% Anexo: C贸digo fuente de funciones utilizadas
 
 %% get_senoidal
 dbtype get_senoidal.m

@@ -5,7 +5,7 @@
 % vectores de coeficientes aleatorios con l0(a) en el rango [1, 10] y 
 % $\Phi $ perteneciente a R^(30x50) también aleatorio. Luego aplique ambos 
 % métodos a cada señal generada y grafique el error cuadrático medio de la 
-% reconstrucción de  x a partir de $\Phi \, \hat{a}$, con cada uno de los 
+% reconstrucción de  x a partir de Phi*â, con cada uno de los 
 % métodos en función de l0(a).
 
 clear all
@@ -83,13 +83,3 @@ xlabel('l0(a)');
 ylabel('RMS Promedio');
 title('RMS Promedio de $\hat{x}$','Interpreter','latex');
 
-%%
-l0a_bp = zeros(1,K);
-l0a_mp = zeros(1,K);
-for l=1:K
-    aux_bp = zeros(1,realizations);
-    aux_mp = zeros(1,realizations);
-    for r=1:realizations
-        aux_bp(r) = 
-    end
-end

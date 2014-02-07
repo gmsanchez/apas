@@ -2,11 +2,8 @@
 % Utilice el algoritmo MOD desarrollado en el ejercicio anterior para 
 % estimar los diccionarios utilizados a partir de los datos artificiales 
 % generados en el Ejercicio Nº 4. Grafique el error cuadrático medio en la 
-% estimación de  $\hat{\Phi}$, utilizando BP y MP para el cálculo de los 
+% estimación de  Phi^, utilizando BP y MP para el cálculo de los 
 % coeficientes, en función de l0(a).
-
-% clear all
-%close all force
 
 phi_hat_mp = cell(1,K);
 phi_hat_bp = cell(1,K);
@@ -19,8 +16,8 @@ rms_x_bp = zeros(1,K);
 
 for l=1:K
     % numatoms = l0(l);
-    numatoms = 100;
-    fprintf('========= l0(a) = %d =========\n',l);
+    numatoms = 50;
+    % fprintf('========= l0(a) = %d =========\n',l);
     [phi_hat_mp{l},a_hat_mp{l}] = my_mod(x{l},M,numatoms,'mp');
     [phi_hat_bp{l},a_hat_bp{l}] = my_mod(x{l},M,numatoms,'bp');
     rms_phi_mp(l) = mean(rms(phi-phi_hat_mp{l}));
@@ -49,7 +46,7 @@ xlabel('l0(a)');
 ylabel('RMS Promedio');
 title('RMS Promedio de $\hat{x}$','Interpreter','latex');
 
-%% 
+ 
 l0a_bp = zeros(1,K);
 l0a_mp = zeros(1,K);
 for l=1:K

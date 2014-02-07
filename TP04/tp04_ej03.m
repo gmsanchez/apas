@@ -26,6 +26,15 @@ dbtype my_dstep.m
 % después del submuestreo, y compárelas con la de la señal original
 % ya analizada.	
 
+%%
+% Al observar la magnitud de la transformada de Fourier de las
+% descomposiciones, podemos observar que el espectro de la señal filtrada
+% con el filtro pasa bajos presenta un espectro muy similar al de la señal
+% original en las bajas frecuencias. El espectro de la señal que ha sido
+% filtrada con el filtro pasa altos vemos lo esperado, que presente
+% contenido en las altas frecuencias mientras que las bajas frecuencias
+% están filtradas.
+
 % Obtenemos nuestra senoidal
 get_senoidal
 
